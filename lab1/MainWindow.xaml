@@ -1,0 +1,27 @@
+﻿<Window x:Class="lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab1"
+        mc:Ignorable="d"
+        FontSize="20"
+        Title="Publishers Info" Height="450" Width="800">
+    <Grid>
+        <DataGrid Margin="30,74,30,10" AutoGenerateColumns="False" x:Name="InfoGrid" AlternatingRowBackground="AliceBlue" MinColumnWidth="125">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Publisher}" Header="Publisher"/>
+                <DataGridTemplateColumn Header="Files">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox ItemsSource="{Binding Files}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding SumSize}" Header="Sum Size, Byte"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Select folder" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Click="SelectFolder"/>
+
+    </Grid>
+</Window>
